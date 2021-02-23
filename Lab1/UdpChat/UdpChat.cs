@@ -30,7 +30,7 @@ namespace UdpChat
                 Console.WriteLine("Enter the receiving port : ");
                 _localPort = int.Parse(Console.ReadLine() ?? throw new Exception("are you a tupiza?"));
                 
-                Console.WriteLine("Welcome to the club, body");
+                Console.WriteLine("Welcome to the club, buddy");
 
                 _socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 _remotePoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), _remotePort);
