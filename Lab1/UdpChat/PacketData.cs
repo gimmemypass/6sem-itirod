@@ -11,6 +11,8 @@ namespace UdpChat
             LogIn,
             LogOut,
             Message,
+            DataArrived, 
+            DataIsBroken,
             Null
         };
 
@@ -21,6 +23,7 @@ namespace UdpChat
         public DataIdentifier dataIdentifier { get; private set; }
         public string name { get; private set; } 
         public string message { get; private set; }
+        public int date { get; private set; }  
         public int NameLength => name?.Length ?? 0;
         public int MessageLength => message?.Length ?? 0;
         public byte[] hash { get; private set; }
@@ -30,19 +33,26 @@ namespace UdpChat
             this.dataIdentifier = dataIdentifier;
             this.name = name;
             this.message = message;
+            this.date = (int) DateTime.UtcNow.Ticks;
         }
 
         public PacketData(byte[] data)
         {
-            dataIdentifier = (DataIdentifier) BitConverter.ToInt32(data, 0);
-            var nameLength = BitConverter.ToInt32(data, 4);
-            var messageLength = BitConverter.ToInt32(data, 8);
-            
-            name = nameLength > 0 ? Encoding.UTF8.GetString(data, 12, nameLength) : null;
-            message = messageLength > 0 ? Encoding.UTF8.GetString(data, 12 + nameLength, messageLength) : null;
-            var offset = 12 + nameLength + messageLength;
+            int offset = 0;
+            dataIdentifier = (DataIdentifier) BitConverter.ToInt32(data, offset);
+            offset += 4;
+            var nameLength = BitConverter.ToInt32(data, offset);
+            offset += 4;
+            var messageLength = BitConverter.ToInt32(data, offset);
+            offset += 4;
+            name = nameLength > 0 ? Encoding.UTF8.GetString(data, offset, nameLength) : null;
+            offset += nameLength;
+            message = messageLength > 0 ? Encoding.UTF8.GetString(data, offset, messageLength) : null;
+            offset += messageLength;
+            date = BitConverter.ToInt32(data, offset);
+            offset += 4;
             hash = new byte[16]; 
-            Array.Copy(data, offset, hash, 0, 16); 
+            Array.Copy(data, offset, hash, 0, 16);
         }
 
         public byte[] GetByteArray()
@@ -62,6 +72,7 @@ namespace UdpChat
                 data.AddRange(Encoding.UTF8.GetBytes(name));
             if(message != null)
                 data.AddRange(Encoding.UTF8.GetBytes(message));
+            data.AddRange(BitConverter.GetBytes(date));
             return data.ToArray();
         }
         

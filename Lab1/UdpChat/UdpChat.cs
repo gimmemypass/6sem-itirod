@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -9,12 +11,20 @@ namespace UdpChat
 {
     internal class UdpChat
     {
-        private static string _name;
+        #region Data
         
+        private const int DELAY = 1000;
+        private static object _locker = new object();
+
+        private static string _name;
         private static Socket _socket;
         private static IPEndPoint _remotePoint;
         private static int _localPort;
         private static int _remotePort;
+        
+        private static Queue<PacketData> _messagesQueue = new Queue<PacketData>();
+        
+        #endregion
 
         public static void Main(string[] args)
         {
@@ -36,7 +46,9 @@ namespace UdpChat
                 _remotePoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), _remotePort);
 
                 var receiverThread = new Thread(ReceiveData);
+                var senderThread = new Thread(HandleMessageQueue);
                 receiverThread.Start();
+                senderThread.Start();
 
                 while (true)
                 {
@@ -48,6 +60,28 @@ namespace UdpChat
             {
                 Console.WriteLine($"[UdpChat] Start() : Shit happens : {error.Message}");
             }
+        }
+
+        private static void HandleMessageQueue()
+        {
+            while (true)
+            {
+                PacketData first = null;
+                lock (_locker)
+                {
+                    if (_messagesQueue.Count != 0)
+                        first = _messagesQueue.Peek();
+                }
+
+                if (first != null)
+                {
+                    var bytes = first.GetByteArray();
+                    _socket.SendTo(bytes, _remotePoint);
+                }
+
+                Thread.Sleep(DELAY);
+            }
+
         }
 
         private static void  ReceiveData()
@@ -74,25 +108,38 @@ namespace UdpChat
                     {
                         listenerSocket.ReceiveFrom(data, ref remotePoint);
                         var packet = new PacketData(data);
+                        
+                        if (!IsHashEqual(packet))
+                        {
+//                            PrintError("It looks like the message was broken");
+                            break;
+                        }
 
+                        if (packet.dataIdentifier == PacketData.DataIdentifier.DataArrived)
+                        {
+                            lock (_locker)
+                            {
+                                if(_messagesQueue.Count != 0)
+                                    _messagesQueue.Dequeue(); 
+                            }
+                        }
                         if (packet.dataIdentifier == PacketData.DataIdentifier.LogIn)
                         {
                             PrintLogIn(packet.name);    
                             break;
                         }
-
-                        if (!IsHashEqual(packet))
-                        {
-                            PrintError("It looks like the message was broken");
-                            break;
-                        }
+                        
                         message.Append(packet.message);
 
                         if (string.IsNullOrEmpty(name)) name = packet.name;
                         
                     } while (listenerSocket.Available > 0);
-                    if(!string.IsNullOrEmpty(message.ToString()))
+
+                    if (!string.IsNullOrEmpty(message.ToString()))
+                    {
                         Console.WriteLine($"[{name}] : {message}");
+                        SendArriveStatus();
+                    }
                 }
 
             }
@@ -100,6 +147,12 @@ namespace UdpChat
             {
                 Console.WriteLine($"[UdpChat] ReceiveData() : {error.Message}"); 
             }
+        }
+
+        private static void SendArriveStatus()
+        {
+            var status = new PacketData(PacketData.DataIdentifier.DataArrived, _name, null);
+            _socket.SendTo(status.GetByteArray(), _remotePoint);
         }
 
         private static void PrintError(string error)
@@ -123,8 +176,11 @@ namespace UdpChat
         private static void SendMessage(string message)
         {
             var data = new PacketData(PacketData.DataIdentifier.Message, _name, message);
-            var bytes = data.GetByteArray();
-            _socket.SendTo(bytes, _remotePoint);
+            lock (_locker)
+            {
+                _messagesQueue.Enqueue(data);
+            } 
+
         }
 
     }
