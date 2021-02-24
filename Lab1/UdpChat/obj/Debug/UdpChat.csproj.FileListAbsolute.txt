@@ -1,0 +1,5 @@
+D:\Doks\itirod\UdpChat\UdpChat\bin\Debug\UdpChat.exe
+D:\Doks\itirod\UdpChat\UdpChat\bin\Debug\UdpChat.pdb
+D:\Doks\itirod\UdpChat\UdpChat\obj\Debug\UdpChat.csprojAssemblyReference.cache
+D:\Doks\itirod\UdpChat\UdpChat\obj\Debug\UdpChat.exe
+D:\Doks\itirod\UdpChat\UdpChat\obj\Debug\UdpChat.pdb
