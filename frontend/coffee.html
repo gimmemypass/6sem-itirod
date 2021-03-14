@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Barbadensis</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <!---------- Logo ---------->
+        <a href="index.html">
+            <figure>
+                <div>
+                    <img src = "res/aloe_small.png" alt = "logo">
+                </div>
+                <figcaption>Barbadensis</figcaption>
+            </figure>
+        </a>
+
+        <!---------- Menu ---------->
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <!--  Sorting form  -->
+        <p>Showing all 10 results</p>
+        <form method="get">
+            <label>
+                <select name="order-by">
+                    <option value="menu_order" selected="selected">Default sorting</option>
+                    <option value="popularity">Sort by popularity</option>
+                    <option value="date">Sort by latest</option>
+                    <option value="price">Sort by price: low to high</option>
+                    <option value="price-desc">Sort by price: high to low</option>
+                </select>
+            </label>
+        </form>
+
+        <!--  Coffee list with descriptions  -->
+        <section>
+                    <div class="container">
+                        <img class="image" src=https://img1.goodfon.ru/original/2040x1360/a/23/kapuchino-kofe-slivki-pena.jpg alt="" width="600">
+                        <h2><b>Сappuccino</b> Coffee</h2>
+                        <span>$3.00</span>
+                    </div>
+                    <article>
+                        <h2>Description</h2>
+                        <p> Duis et aliquam orci. Vivamus augue quam, sollicitudin quis bibendum quis, ...</p>
+                    </article>
+                    <div class="container">
+                        <img class="image" src=https://im0-tub-by.yandex.net/i?id=6ae57533ad86c912c2b46228be146497&n=13&exp=1 alt="" width="600">
+                        <h2><b>Latte</b> Coffee</h2>
+                        <span>$3.00</span>
+                    </div>
+                    <article>
+                        <h2>Description</h2>
+                        <p> Duis et aliquam orci. Vivamus augue quam, sollicitudin quis bibendum quis, ...</p>
+                    </article>
+        </section>
+
+        <!--  Search with filter params  -->
+        <section role="complementary">
+            <aside>
+                <form role="search" method="get">
+                    <label for="search">Search for:</label>
+                    <input type="search" id="search" placeholder="Search products…" value="" name="search">
+                    <button type="submit" value="Search">Search</button>
+                </form>
+            </aside>
+            <aside>
+                <h3><b>Types</b> Of Coffee Beans</h3>
+                <ul>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="option1" value="a1" checked>
+                            <span>Arabica</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="option1" value="a1">
+                            <span>Robusta</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="option1" value="a1" checked>
+                            <span>Liberica</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="option1" value="a1">
+                            <span>Excelsina</span>
+                        </label>
+                    </li>
+                </ul>
+            </aside>
+            <aside>
+                <h3>Filter</h3>
+                <form method="get">
+                    <div>
+                        <label for="min_price"></label><input type="text" id="min_price" name="min_price" value="1" placeholder="Min price">
+                        <label for="max_price"></label><input type="text" id="max_price" name="max_price" value="4" placeholder="Max price">
+                        <button type="submit">Filter</button>
+                        <p>Price: $1 — $4</p>
+                    </div>
+                </form>
+            </aside>
+        </section>
+
+         Coffee video 
+        <section>
+            <hr>
+            <h2>
+                <b>Discover</b> best practices of coffee brewing with our <u><em>top</em></u> barista Valera3x!
+            </h2><hr>
+            <div class="container">
+                <div class="video-responsive">
+                    <video width="620" controls="controls" preload="none">
+                        <source src="res/video/Barista_training%20_video.mp4">
+                        <source src="res/video/Barista_training%20_video_360.mp4">
+                        Тег video не поддерживается вашим браузером.
+                        <a href="https://r3---sn-xapbiu-3xwl.googlevideo.com/videoplayback?expire=1615392413&ei=PZpIYI-EOZGv-gb-k6mwDw&ip=176.196.198.154&id=o-ANSfbTQTuE1Llg3rQjgRn_xgp55HMmCTJMYpkKuPJaMV&itag=22&source=youtube&requiressl=yes&mh=HR&mm=31%2C29&mn=sn-xapbiu-3xwl%2Csn-n8v7kn76&ms=au%2Crdu&mv=m&mvi=3&pl=23&initcwndbps=1846250&vprv=1&mime=video%2Fmp4&ns=7G7brWx263pbgdAZQgz7OR8F&cnr=14&ratebypass=yes&dur=794.772&lmt=1539811869943812&mt=1615370437&fvip=8&fexp=24001374%2C24007246&c=WEB&txp=5531432&n=-NNYrVrMXVl5pQUl&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgNCSe8Kc_oOYt0-8Ul8UF3tjiix7VVCR1hAnWy1YGsKcCICKQtRA_oVEgFBM2eG8gNK6exxyK2yVHlnG6jsZizcU5&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgfqzDcKrmHINbTyLRsk352CONIbxoVGLWjb5ONUjegfUCIHC2FBXWyoavrFhv9ZsL8-OlVTb5VVR4sIXTZULpe1I_&title=Barista%20Training%20Video"
+                        download="https://r3---sn-xapbiu-3xwl.googlevideo.com/videoplayback?expire=1615392413&ei=PZpIYI-EOZGv-gb-k6mwDw&ip=176.196.198.154&id=o-ANSfbTQTuE1Llg3rQjgRn_xgp55HMmCTJMYpkKuPJaMV&itag=22&source=youtube&requiressl=yes&mh=HR&mm=31%2C29&mn=sn-xapbiu-3xwl%2Csn-n8v7kn76&ms=au%2Crdu&mv=m&mvi=3&pl=23&initcwndbps=1846250&vprv=1&mime=video%2Fmp4&ns=7G7brWx263pbgdAZQgz7OR8F&cnr=14&ratebypass=yes&dur=794.772&lmt=1539811869943812&mt=1615370437&fvip=8&fexp=24001374%2C24007246&c=WEB&txp=5531432&n=-NNYrVrMXVl5pQUl&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgNCSe8Kc_oOYt0-8Ul8UF3tjiix7VVCR1hAnWy1YGsKcCICKQtRA_oVEgFBM2eG8gNK6exxyK2yVHlnG6jsZizcU5&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgfqzDcKrmHINbTyLRsk352CONIbxoVGLWjb5ONUjegfUCIHC2FBXWyoavrFhv9ZsL8-OlVTb5VVR4sIXTZULpe1I_&title=Barista%20Training%20Video">
+                            Скачайте видео
+                        </a>.
+                    </video>
+                </div>
+
+            </div>
+            <a href="https://r3---sn-xapbiu-3xwl.googlevideo.com/videoplayback?expire=1615392413&ei=PZpIYI-EOZGv-gb-k6mwDw&ip=176.196.198.154&id=o-ANSfbTQTuE1Llg3rQjgRn_xgp55HMmCTJMYpkKuPJaMV&itag=22&source=youtube&requiressl=yes&mh=HR&mm=31%2C29&mn=sn-xapbiu-3xwl%2Csn-n8v7kn76&ms=au%2Crdu&mv=m&mvi=3&pl=23&initcwndbps=1846250&vprv=1&mime=video%2Fmp4&ns=7G7brWx263pbgdAZQgz7OR8F&cnr=14&ratebypass=yes&dur=794.772&lmt=1539811869943812&mt=1615370437&fvip=8&fexp=24001374%2C24007246&c=WEB&txp=5531432&n=-NNYrVrMXVl5pQUl&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgNCSe8Kc_oOYt0-8Ul8UF3tjiix7VVCR1hAnWy1YGsKcCICKQtRA_oVEgFBM2eG8gNK6exxyK2yVHlnG6jsZizcU5&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgfqzDcKrmHINbTyLRsk352CONIbxoVGLWjb5ONUjegfUCIHC2FBXWyoavrFhv9ZsL8-OlVTb5VVR4sIXTZULpe1I_&title=Barista%20Training%20Video"
+               download="https://r3---sn-xapbiu-3xwl.googlevideo.com/videoplayback?expire=1615392413&ei=PZpIYI-EOZGv-gb-k6mwDw&ip=176.196.198.154&id=o-ANSfbTQTuE1Llg3rQjgRn_xgp55HMmCTJMYpkKuPJaMV&itag=22&source=youtube&requiressl=yes&mh=HR&mm=31%2C29&mn=sn-xapbiu-3xwl%2Csn-n8v7kn76&ms=au%2Crdu&mv=m&mvi=3&pl=23&initcwndbps=1846250&vprv=1&mime=video%2Fmp4&ns=7G7brWx263pbgdAZQgz7OR8F&cnr=14&ratebypass=yes&dur=794.772&lmt=1539811869943812&mt=1615370437&fvip=8&fexp=24001374%2C24007246&c=WEB&txp=5531432&n=-NNYrVrMXVl5pQUl&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgNCSe8Kc_oOYt0-8Ul8UF3tjiix7VVCR1hAnWy1YGsKcCICKQtRA_oVEgFBM2eG8gNK6exxyK2yVHlnG6jsZizcU5&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgfqzDcKrmHINbTyLRsk352CONIbxoVGLWjb5ONUjegfUCIHC2FBXWyoavrFhv9ZsL8-OlVTb5VVR4sIXTZULpe1I_&title=Barista%20Training%20Video">
+                Скачайте видео
+            </a>.
+        </section>
+    </main>
+
+</body>
+</html>
