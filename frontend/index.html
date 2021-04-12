@@ -1,286 +1,141 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Barbadénsis café</title>
 
-    <base target="_self">
+    <base target="_self" />
 
-    <meta charset="utf-8">
-    <meta name="description" content="Barbadénsis café website.">
-    <meta name="author" content="Child of sunshine">
-    <meta name="keywords" content="cafe, coffee, desserts, barbadénsis">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="description" content="Barbadénsis café website." />
+    <meta name="author" content="Child of sunshine" />
+    <meta name="keywords" content="cafe, coffee, desserts, barbadénsis" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
     <link rel="icon" href="res/favicon_main.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="res/favicon_main.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/goods.css" />
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
 
-</head>
+    <script src="js/app.js" defer></script>
+    <script src="js/sub-menu.js" defer></script>
+  </head>
 
-<body>
-    <header>
+  <body>
+    <!---------- Preloader ---------->
+    <img id="preloader" src="res/preloader.gif" alt="Preloader" />
+    <script src="js/preloader.js"></script>
+
+    <div id="content" class="preloader_hide">
+      <header>
         <!---------- Top navigation panel ---------->
-        <div>
+          <div class="menu_block">
+            <!--            <div class="menu_content">-->
             <!---------- Logo ---------->
-            <a href="#home">
-                <figure>
-                    <img src = "res/aloe_small.png" alt = "logo">
-                    <figcaption>Barbadensis</figcaption>
-                </figure>
-            </a>
+            <div class="logo">
+              <a href="#landing">
+                <img src="res/aloe_small.png" alt="logo" />
+                <span class="b1">Bar</span>badensis
+              </a>
+            </div>
 
             <!---------- Menu ---------->
-            <nav>
-                <ul>
-                    <li><a href = "#about">ABOUT</a></li>
-                    <li>
-                        <a href = "#menu">MENU</a>
-                        <ul>
-                            <li><a href="desserts.html" >Desserts</a></li>
-                            <li><a href="coffee.html" >Coffee</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#location">LOCATION</a></li>
-                    <li><a href="#opening-hours">OPENING HOURS</a></li>
-                </ul>
+            <nav class="navmenu center">
+              <ul class="navmenu__list">
+                <li class="navmenu__item"><a href="#landing">ABOUT</a></li>
+                <li class="sub-menu">
+                  <a class="sub-menu__btn">MENU</a>
+                  <ul class="sub-menu__list">
+                    <li><a href="#">Price list </a></li>
+                    <li><a href="#desserts">Desserts</a></li>
+                    <li><a href="#coffee">Coffee</a></li>
+                    <li><a href="#">Other drinks</a></li>
+                  </ul>
+                </li>
+                <li class="navmenu__item"><a href="#location">LOCATION</a></li>
+                <li class="navmenu__item"><a href="#opening-hours">OPENING HOURS</a></li>
+                <li class="navmenu__item navmenu__login">
+                  <a class="navmenu__login-link nav-link" href="#login">Login</a>
+                </li>
+              </ul>
             </nav>
+          </div>
         </div>
+      </header>
+      
+      <div id="app"></div>
 
-        <!---------- Search ---------->
-        <div id="search-form">
-            <form method="get" action="#">
-                <label>
-                    <input type="text" name="Search" value="Search" onFocus="if (this.value == 'Search') this.value = '';" onBlur="if (this.value == '') this.value = 'Search';" />
-                </label>
-            </form>
+      <footer class="footer-wrapper">
+        <div class="footer-element">
+          <div class="footer-container shedule">
+            <h3 class="shedule__title">OPENING HOURS</h3>
+            <p class="shedule__item"><strong>Monday:</strong> 9:00 – 22:00</p>
+            <p class="shedule__item"><strong>Tuesday:</strong> 9:00 – 22:00</p>
+            <p class="shedule__item"><strong>Wednesday:</strong> 9:00 – 22:00</p>
+            <p class="shedule__item"><strong>Thursday:</strong> 9:00 – 22:00</p>
+            <p class="shedule__item"><strong>Friday:</strong> 9:00 – 22:00</p>
+            <p class="shedule__item"><strong>Saturday:</strong> 11:00 – 20:00</p>
+            <p class="shedule__item"><strong>Sunday:</strong> CLOSED</p>
+          </div>
         </div>
-    </header>
-
-    <main>
-        <!---------- Home ---------->
-        <div id="home">
-            <!---------- Top slider ---------->
-            <div>
-                <ul>
-                    <li>
-                        <div>
-                            <p>Professional</p>
-                            <p>Barista Team</p>
-                            <p>Our baristas are true artists. A simple stir releases the roasted, floral, fruity and
-                                spicy fragrances of freshly ground coffee.</p>
-                            <p>Happiness that you can drink</p>
-                        </div>
-                        <a href="#team">Our team</a>
-                    </li>
-                    <li>
-                        <div>
-                            <p>Unique</p>
-                            <p>History</p>
-                            <p>For many years aloe was revered for its miraculous healing powers. We use this plant to
-                                create a special tasty drink with treating properties.</p>
-                        </div>
-                        <a href="#history">Our history</a>
-                    </li>
-                    <li>
-                        <div>
-                            <p>Variety</p>
-                            <p>Of Desserts</p>
-                            <p>Discover your own kind of life lighter with our ever so delicate sweet taste of desserts.</p>
-                        </div>
-                        <a href="#about-video">See more</a>
-                    </li>
-                </ul>
-                <!-- Video background -->
+        <div class="footer-element socials">
+          <div class="footer-container lang">
+            <div class="options">
+              <form>
+                <select name="language">
+                  <option value="english">English</option>
+                  <option value="russian">Russian</option></select
+                ><br />
+              </form>
             </div>
+          </div>
+          <div class="social">
+            <ul class="redes-sociais">
+              <li>
+                <a href="https://github.com">
+                  <img src="res/instagram_logo.webp" alt="Instagram icon" width="25" height="25"
+                /></a>
+              </li>
+              <li>
+                <a href="https://github.com">
+                  <img src="res/github_logo.png" alt="Instagram icon" width="25" height="25"
+                /></a>
+              </li>
+              <li>
+                <a href="https://github.com">
+                  <img src="res/vk_logo.png" alt="Instagram icon" width="25" height="25"
+                /></a>
+              </li>
+            </ul>
+          </div>
+          <p class="cp">ФКСИС @ 2021</p>
         </div>
+      </footer>
 
-        <section id="about">
-            <h1>ABOUT US</h1><hr>
-            <!---------- Team ---------->
-            <section id="team">
-                <div>
-                    <h2><b>Our</b> Team</h2>
-                    <!---------- Row ---------->
-                    <div>
-                        <!-- crewman1 -->
-                        <div>
-                            <div class="container">
-                                <img class="crewman" src="res/team/1.jpg" alt="" height="500" width="350" />
-                            </div>
-                            <div>
-                                <p>Joe Black</p>
-                                <span>Director</span>
-                            </div>
-                            <div class="crewman_social">
-                                <a href=""><img src="res/github_logo.png" height="30" width="30" alt="Crewman 1 github link"></a>
-                                <a href=""><img src="res/instagram_logo.webp" height="30" width="30" alt="Crewman 1 instagram link"></a>
-                            </div>
-                        </div>
+      <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
 
-                        <!-- crewman2 -->
-                        <div>
-                            <div class="container">
-                                <img class="crewman" src="res/team/2.jpg" alt="" height="500" width="350"/>
-                            </div>
-                            <div>
-                                <p>Mrs. Smith</p>
-                                <span>Manager</span>
-                            </div>
-                            <div class>
-                                <a href=""><img src="res/github_logo.png" height="30" width="30" alt="Crewman 2 github link"></a>
-                                <a href=""><img src="res/instagram_logo.webp" height="30" width="30" alt="Crewman 2 instagram link"></a>
-                                <a href=""><img src="res/vk_logo.png" height="30" width="30" alt="Crewman 2 vk link"></a>
-                            </div>
-                        </div>
-
-                        <!-- crewman3 -->
-                        <div>
-                            <div class="container">
-                                <img class="crewman" src="res/team/3.jpg" alt="" height="500" width="350"/>
-                            </div>
-                            <div>
-                                <p>Valery 3x</p>
-                                <span>Barista</span>
-                            </div>
-                            <div>
-                                <a href=""><img src="res/github_logo.png" height="30" width="30" alt="Crewman 3 github link"></a>
-                                <a href=""><img src="res/instagram_logo.webp" height="30" width="30" alt="Crewman 3 instagram link"></a>
-                            </div>
-                        </div>
-
-                        <!-- crewman4 -->
-                        <div>
-                            <div class="container">
-                                <img class="crewman" src="res/team/4.jpg" alt="" height="500" width="350"/>
-                            </div>
-                            <div>
-                                <p>Roman Grek</p>
-                                <span>Baker</span>
-                            </div>
-                            <div>
-                                <a href=""><img src="res/github_logo.png" height="30" width="30" alt="Crewman 4 github link"></a>
-                                <a href=""><img src="res/vk_logo.png" height="30" width="30" alt="Crewman 4 vk link"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!---------- History ---------->
-            <section id="history">
-                <h2><b>Our</b> History</h2>
-                <div>
-                    <h2>Long road from dreams to real success...</h2>
-                    <p>After Howard Schultz bought the company from its founding members in <b>1987</b>, he focused on making Barbadensis the “Third Place”. The idea of the third place is one that exists between work and home. It’s a space where people want to hang out and relax.
-
-                        There’s just something comforting about ordering a nice cup of coffee and being encouraged to sit in the shop with your laptop and work. On top of that, Barbadensis also serves as an oasis for meeting up with friends, having a snack, and relaxing in a comfy chair while listening to the latest <b>Indie playlists</b>.</p>
-                    <blockquote>
-                        «When we drink coffee, ideas march in like the army.»<br>&copy;<i>Honore de Balzac</i>
-                    </blockquote>
-                    <h3>Discovering aloe drinks</h3>
-                    <p>You may have used aloe vera on a sunburn, and you might even have an aloe vera plant in the kitchen for minor burns, but it can also be turned into a refreshing drink. While many of the health claims made by aloe vera juice producers are unsubstantiated, drinking it can soothe some digestive ailments. You can also flavor pure aloe juice or combine it with other beverages. We've done our best for maximum customization of aloe vera drinks!<br>
-                    </p>
-                    <details><summary>Benefits of aloe drinks</summary>
-                        <ol>
-                            <li>May Treat Digestive Issues</li>
-                            <li>May Reduce Inflammation</li>
-                            <li>May Promote Heart Health</li>
-                            <li>May Detoxify The Body</li>
-                            <li>May Aid Weight Loss</li>
-                            <li>May Support The Immune System</li>
-                            <li>May Control Blood Sugar Levels</li>
-                            <li>May Help Reduce Cancer Risk</li>
-                            <li>May Hydrate The Body</li>
-                            <li>May Improve Oral Health</li>
-                            <li>May Promote Hair Health</li>
-                            <li>May Provide The Essential Amino Acids</li>
-                            <li>May Improve Brain Health</li>
-                            <li>May Treat Heartburn</li>
-                        </ol>
-                    </details>
-                    <p>Enjoy detoxifying green smoothie or tasty tropical treat with pineapple and papaya or try sweet honey drink with aloe vera. Everybody will find something for his own taste.</p>
-                </div>
-
-                <aside>
-                    <p><strong>Aloe barbadensis</strong> is a spiky succulent plant that is abundant in nature and has been used for medicinal purposes in several cultures over thousands of years, often for treating wounds, burns and other skin ailments. It’s a native plant in the driest regions of Asia, Europe, the Americas and Africa. Commonly called aloe vera, the ingredient acts as a natural moisturizer. The plant’s leaves contain antioxidants, such as beta carotene (vitamin A), vitamin C, and vitamin E. They also contain vitamin B12 and folic acid. Saponins in the leaves also have cleansing and antiseptic properties.</p>
-                    <p>See more: <a href="https://www.healthline.com/health/food-nutrition/aloe-vera-juice-benefits#_noHeaderPrefixedContent">about aloe vera drinks</a>.</p>
-                </aside>
-            </section>
-
-            <!---------- Video ---------->
-            <section id="about-video">
-                <h2><b>See</b> More</h2>
-                <div class="container">
-                    <div class="video-responsive">
-                        <iframe width="420" height="315" src="https://www.youtube.com/embed/vFcS080VYQ0?start=9" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-
-                </div>
-            </section>
-        </section>
-
-        <!-- Menu -->
-        <section id="menu">
-            <div>
-                <h1>MENU</h1><hr>
-                <!-- Row -->
-                <div>
-                    <div>
-                        <a href="desserts.html" >
-                            <p><b>Freshly</b> Baked Desserts</p>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="coffee.html" >
-                            <p><b>Best</b> Coffee</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!---------- Location ---------->
-        <section id="location">
-            <h2>LOCATION</h2><hr>
-            <div class="container">
-                <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1723.8746755856232!2d30.456613186887!3d52.33547138746159!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d430c9c810e447%3A0x8ac21f1d21d2497f!2sZhmurovka!5e0!3m2!1sen!2sby!4v1615332889299!5m2!1sen!2sby" width="800" height="600" allowfullscreen=""></iframe>
-                </div>
-            </div>
-        </section>
-
-        <!---------- Opening hours ---------->
-        <section id="opening-hours">
-            <h2>OPENING HOURS</h2><hr>
-            <strong>Monday:</strong> 9:00 – 22:00<br>
-            <strong>Tuesday:</strong> 9:00 – 22:00<br>
-            <strong>Wednesday:</strong> 9:00 – 22:00<br>
-            <strong>Thursday:</strong> 9:00 – 22:00<br>
-            <strong>Friday:</strong> 9:00 – 22:00<br>
-            <strong>Saturday:</strong> 11:00 – 20:00<br>
-            <strong>Sunday:</strong> CLOSED<br>
-        </section>
-    </main>
-
-
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
-
-    <script>
+      <script>
         // Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyDSrH8UrWlOkZjx62Gg0zEFBbLYF8jj1Ls",
-            authDomain: "frontend-cafe-7.firebaseapp.com",
-            projectId: "frontend-cafe-7",
-            storageBucket: "frontend-cafe-7.appspot.com",
-            messagingSenderId: "528222335806",
-            appId: "1:528222335806:web:159a17a7a5df1ce879326f",
-            measurementId: "G-RGVP89M19E"
+          apiKey: "AIzaSyDSrH8UrWlOkZjx62Gg0zEFBbLYF8jj1Ls",
+          authDomain: "frontend-cafe-7.firebaseapp.com",
+          projectId: "frontend-cafe-7",
+          storageBucket: "frontend-cafe-7.appspot.com",
+          messagingSenderId: "528222335806",
+          appId: "1:528222335806:web:159a17a7a5df1ce879326f",
+          measurementId: "G-RGVP89M19E",
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-    </script>
-</body>
-
+      </script>
+    </div>
+  </body>
 </html>
