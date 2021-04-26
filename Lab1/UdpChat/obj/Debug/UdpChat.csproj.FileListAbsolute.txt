@@ -3,3 +3,9 @@ D:\Doks\itirod\UdpChat\UdpChat\bin\Debug\UdpChat.pdb
 D:\Doks\itirod\UdpChat\UdpChat\obj\Debug\UdpChat.csprojAssemblyReference.cache
 D:\Doks\itirod\UdpChat\UdpChat\obj\Debug\UdpChat.exe
 D:\Doks\itirod\UdpChat\UdpChat\obj\Debug\UdpChat.pdb
+E:\Doks\6sem-itirod\Lab1\UdpChat\obj\Debug\UdpChat.exe
+E:\Doks\6sem-itirod\Lab1\UdpChat\obj\Debug\UdpChat.pdb
+E:\Doks\6sem-itirod\Lab1\UdpChat\bin\Debug\UdpChat.exe
+E:\Doks\6sem-itirod\Lab1\UdpChat\bin\Debug\UdpChat.pdb
+E:\Doks\6sem-itirod\Lab1\UdpChat\obj\Debug\UdpChat.csprojAssemblyReference.cache
+E:\Doks\6sem-itirod\Lab1\UdpChat\obj\Debug\UdpChat.csproj.CoreCompileInputs.cache
