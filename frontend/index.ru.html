@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Barbadénsis café</title>
+
+    <base target="_self" />
+
+    <meta charset="utf-8" />
+    <meta name="description" content="Barbadénsis café website." />
+    <meta name="author" content="Child of sunshine" />
+    <meta name="keywords" content="cafe, coffee, desserts, barbadénsis" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <link rel="icon" href="res/favicon_main.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="res/favicon_main.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/profile.css" />
+    <link rel="stylesheet" href="css/goods.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBae1XBXTF8yu0bgVR3n2duS7Bh5hEFFss",
+        authDomain: "coffee-b579a.firebaseapp.com",
+        databaseURL: "https://coffee-b579a-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "coffee-b579a",
+        storageBucket: "coffee-b579a.appspot.com",
+        messagingSenderId: "393452685710",
+        appId: "1:393452685710:web:feaa6e37c28751254e7cdf"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="js/app.js" type="module" defer></script>
+    <script src="js/sub-menu.js" defer></script>
+    <script src="js/auth/auth.js" defer></script>
+    <script src="js/lang.js" defer></script>
+
+  </head>
+
+  <body>
+    <!---------- Preloader ---------->
+    <img id="preloader" src="res/preloader.gif" alt="Preloader" />
+    <script src="js/preloader.js"></script>
+
+    <div id="content" class="preloader_hide">
+      <header>
+        <!---------- Top navigation panel ---------->
+          <div class="menu_block">
+            <!--            <div class="menu_content">-->
+            <!---------- Logo ---------->
+            <div class="logo">
+              <a href="#landing">
+                <img src="res/aloe_small.png" alt="logo" />
+                <span class="b1">Bar</span>badensis
+              </a>
+            </div>
+
+            <!---------- Menu ---------->
+            <nav class="navmenu center">
+              <ul class="navmenu__list">
+                <li class="navmenu__item"><a href="#landing">О нас</a></li>
+                <li class="sub-menu">
+                  <a class="sub-menu__btn">Меню</a>
+                  <ul class="sub-menu__list">
+                    <li><a href="#">Цены</a></li>
+                    <li><a href="#desserts">Десерты</a></li>
+                    <li><a href="#coffee">Кофе</a></li>
+                    <li><a href="#">Др. напитки</a></li>
+                  </ul>
+                </li>
+                <li class="navmenu__item"><a href="#location">Локация</a></li>
+                <li class="navmenu__item"><a href="#opening-hours">Время работы</a></li>
+                <li class="navmenu__item navmenu__login">
+                  <a class="navmenu__login-link nav-link" href="#login">Логин</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+
+      
+      <div id="app"></div>
+      <div id="modal"></div>
+
+      <footer class="footer-wrapper">
+        <div class="footer-element">
+          <div class="footer-container shedule">
+            <h3 class="shedule__title">Время работы</h3>
+            <p class="shedule__item"><strong>Понедельник:</strong> 9:00 – 22:00</p>
+            <p class="shedule__item"><strong>Вторник:</strong> 9:00 – 22:00</p>
+            <p class="shedule__item"><strong>Среда:</strong> 9:00 – 22:00</p>
+            <p class="shedule__item"><strong>Четверг:</strong> 9:00 – 22:00</p>
+            <p class="shedule__item"><strong>Пятница:</strong> 9:00 – 22:00</p>
+            <p class="shedule__item"><strong>Суббота:</strong> 11:00 – 20:00</p>
+            <p class="shedule__item"><strong>Воскресенье:</strong> Закрыто</p>
+          </div>
+        </div>
+        <div class="footer-element socials">
+          <div class="footer-container lang">
+            <div class="options">
+              <form>
+                <select name="language" id="language">
+                  <option disabled selected>Язык</option>
+                  <option value="en">English</option>
+                  <option value="ru">Russian</option></select
+                ><br />
+              </form>
+            </div>
+          </div>
+          <div class="social">
+            <ul class="redes-sociais">
+              <li>
+                <a href="https://github.com">
+                  <img src="res/instagram_logo.webp" alt="Instagram icon" width="25" height="25"
+                /></a>
+              </li>
+              <li>
+                <a href="https://github.com">
+                  <img src="res/github_logo.png" alt="Instagram icon" width="25" height="25"
+                /></a>
+              </li>
+              <li>
+                <a href="https://github.com">
+                  <img src="res/vk_logo.png" alt="Instagram icon" width="25" height="25"
+                /></a>
+              </li>
+            </ul>
+          </div>
+          <p class="cp">ФКСИС @ 2021</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

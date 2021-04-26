@@ -1,0 +1,42 @@
+<div id="modal">
+  <div class="overlay-modal">
+    <form class="modal__form" name="modalForm">
+      <div class="field">
+        <label class="label" for="good-type">Type</label>
+        <select class="modal__input good-type" name="goodType" id="good-type">
+          <option value="coffee">Coffee</option>
+          <option value="dessert">Dessert</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="label" for="good-desc">Description</label>
+        <textarea
+          class="modal__input good-desc"
+          type="text"
+          id="good-desc"
+          name="goodDesc"
+          maxlength="100"
+          required
+        ></textarea>
+      </div>
+      <div class="field">
+        <label class="label" for="good-price">Price</label>
+        <input
+          class="modal__input good-price"
+          type="number"
+          id="good-price"
+          name="goodPrice"
+          required
+        />
+      </div>
+      <div class="field">
+        <label class="label" for="good-photo">Photo</label>
+        <input class="modal__input good-photo" type="file" id="good-photo" name="goodPhoto" />
+      </div>
+      <div class="button__container">
+        <button class="button add-good-btn">Save</button>
+        <button class="button close-modal">Close</button>
+      </div>
+    </form>
+  </div>
+</div>
