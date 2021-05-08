@@ -188,3 +188,39 @@
 .goods__action_delete-from-cart:hover {
   background-color: brown;
 }
+
+/* Skeleton template */
+
+.goods__item_skeleton {
+  background-color: gray;
+
+  animation: skeleton-pulse 1s infinite;
+}
+.goods__img_skeleton {
+  background-color: gray;
+
+  animation: skeleton-pulse 1s infinite;
+}
+.info__price_skeleton {
+  width: 50px;
+  height: 20px;
+  background-color: gray;
+
+  animation: skeleton-pulse 1s infinite;
+}
+.info__rate_skeleton {
+  width: 50px;
+  height: 20px;
+  background-color: gray;
+
+  animation: skeleton-pulse 1s infinite;
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}

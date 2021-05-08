@@ -1,13 +1,13 @@
 import { Good } from "./goods/good.js";
-import { getHtml, possibleHash } from "./router.js";
+import { getHtml, insertStaticElems, possibleHash } from "./router.js";
 
 const app = document.querySelector("#app");
 let auth; // instance of Auth, which will be created in login view
 const good = new Good();
 
-document.addEventListener("DOMContentLoaded", () => {
-  changePage("landing");
-})
+// insertStaticElems("footer");
+// insertStaticElems("header");
+changePage("landing")
 
 window.addEventListener("hashchange", changePage);
 

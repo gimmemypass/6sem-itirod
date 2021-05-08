@@ -1,38 +1,48 @@
 export const GoodList = {
   showAll(types, isCrud) {
     this.insertedGoods = [];
-    this.getGoodsList().innerHTML = "";
-    types.forEach(async (type) => {
+    types.forEach(async (type, index) => {
       const dbRef = await firebase.database().ref(`goods/${type}`);
       const snapshot = await dbRef.get();
       if (snapshot.exists()) {
         const snapshotEntries = Object.entries(snapshot.val());
         this.insertedGoods = snapshotEntries;
-        this.insertGoods(snapshotEntries, type, isCrud);
+        await this.getGoodsListElement(snapshotEntries, type, isCrud, index >= 1 ? false : true);
       }
     });
   },
-  async insertGoods(snapshotEntries, type, isCrud) {
+  async getGoodsListElement(snapshotEntries, type, isCrud, isFirst) {
+    const lis = [];
     snapshotEntries.forEach(async ([id, good]) => {
       const { desc, price, photo, overallRate } = good;
-      this.getGoodsList().innerHTML += this.getGoodTemplate(desc, price, photo, id, type, overallRate, isCrud);
-      this.setRateInputs(document.querySelectorAll(".goods__action_rate"));
+      lis.push(this.getGoodTemplate(desc, price, photo, id, type, overallRate, isCrud));
     })
+    if (isFirst) {
+      this.getGoodsList().innerHTML = lis.join("");
+    } else {
+      this.getGoodsList().innerHTML += lis.join("");
+    }
+    this.setRateInputs(document.querySelectorAll(".goods__action_rate"));
   },
   async showUserCart() {
-    this.getGoodsList().innerHTML = "";
+    const lis = [];
     let totalPrice = 0;
     const userUID = await firebase.auth().currentUser.uid;
     const userGoods = await this.getDBInfo(`goods/${userUID}`);
-    Object.entries(userGoods).forEach(async ([cartGoodUID, { goodUID, type }]) => {
+    Object.entries(userGoods).forEach(async ([cartGoodUID, { goodUID, type }], index) => {
       const good = await this.getDBInfo(`goods/${type}/${goodUID}`);
       const { desc, price, photo, overallRate } = good;
 
-      this.getGoodsList().innerHTML += this.getGoodTemplate(desc, price, photo, cartGoodUID, type, overallRate, false, true);
-      this.setRateInputs(document.querySelectorAll(".goods__action_rate"));
+      lis.push(this.getGoodTemplate(desc, price, photo, cartGoodUID, type, overallRate, false, true));
 
       totalPrice += +price;
-      this.totalPriceNode.textContent = totalPrice;
+
+      if (Object.entries(userGoods).length - 1 === index) {
+        this.getGoodsList().innerHTML = lis.join("");
+        this.setRateInputs(document.querySelectorAll(".goods__action_rate"));
+        this.totalPriceNode.textContent = totalPrice;
+      }
+
     });
   },
   showTotalPrice(price) {

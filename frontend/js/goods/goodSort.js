@@ -35,7 +35,7 @@ export const GoodSort = {
       return +goodARate - +goodBRate;
     })
     this.getGoodsList().innerHTML = "";
-    this.insertGoods(this.insertedGoods, type, false);
+    this.getGoodsListElement(this.insertedGoods, type, false);
   },
   sortByPriceAsc(type) {
     this.insertedGoods.sort((a, b) => {
@@ -44,7 +44,7 @@ export const GoodSort = {
       return +goodAPrice - +goodBPrice;
     })
     this.getGoodsList().innerHTML = "";
-    this.insertGoods(this.insertedGoods, type, false);
+    this.getGoodsListElement(this.insertedGoods, type, false);
   },
   sortByPriceDesc(type) {
     this.insertedGoods.sort((a, b) => {
@@ -53,6 +53,6 @@ export const GoodSort = {
       return +goodBPrice - +goodAPrice;
     })
     this.getGoodsList().innerHTML = "";
-    this.insertGoods(this.insertedGoods, type, false);
+    this.getGoodsListElement(this.insertedGoods, type, false);
   }
 }

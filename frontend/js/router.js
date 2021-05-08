@@ -25,4 +25,25 @@ async function getHtml(viewName) {
   }
 }
 
-export { getHtml, possibleHash }
+async function insertStaticElems(elemName) {
+  const elemNode = document.querySelector(`#${elemName}`);
+
+  switch (document.documentElement.lang) {
+    case "ru": {
+      const resp = await fetch(`../views/ru/${elemName}.ru.html`);
+      const html = await resp.text();
+      elemNode.innerHTML = html;
+      document.dispatchEvent(new CustomEvent(elemName))
+      break;
+    }
+    case "en": {
+      const resp = await fetch(`../views/${elemName}.html`);
+      const html = await resp.text();
+      elemNode.innerHTML = html;
+      document.dispatchEvent(new CustomEvent(elemName))
+      break;
+    }
+  }
+}
+
+export { getHtml, insertStaticElems, possibleHash }

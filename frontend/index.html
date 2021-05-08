@@ -39,67 +39,61 @@
         projectId: "coffee-b579a",
         storageBucket: "coffee-b579a.appspot.com",
         messagingSenderId: "393452685710",
-        appId: "1:393452685710:web:feaa6e37c28751254e7cdf"
+        appId: "1:393452685710:web:feaa6e37c28751254e7cdf",
       };
 
       firebase.initializeApp(firebaseConfig);
     </script>
 
     <script src="js/app.js" type="module" defer></script>
-    <script src="js/sub-menu.js" defer></script>
     <script src="js/auth/auth.js" defer></script>
-    <script src="js/lang.js" defer></script>
-
+    <script src="js/lang.js" type="module" defer></script>
+    <script src="js/sub-menu.js" defer></script>
   </head>
 
   <body>
-    <!---------- Preloader ---------->
     <img id="preloader" src="res/preloader.gif" alt="Preloader" />
     <script src="js/preloader.js"></script>
 
     <div id="content" class="preloader_hide">
-      <header>
+    <header id="header">
         <!---------- Top navigation panel ---------->
-          <div class="menu_block">
-            <!--            <div class="menu_content">-->
-            <!---------- Logo ---------->
-            <div class="logo">
-              <a href="#landing">
-                <img src="res/aloe_small.png" alt="logo" />
-                <span class="b1">Bar</span>badensis
-              </a>
-            </div>
+    <div class="menu_block">
+      <!--            <div class="menu_content">-->
+      <!---------- Logo ---------->
+      <div class="logo">
+        <a href="#landing">
+          <img src="res/aloe_small.png" alt="logo" />
+          <span class="b1">Bar</span>badensis
+        </a>
+      </div>
 
-            <!---------- Menu ---------->
-            <nav class="navmenu center">
-              <ul class="navmenu__list">
-                <li class="navmenu__item"><a href="#landing">ABOUT</a></li>
-                <li class="sub-menu">
-                  <a class="sub-menu__btn">MENU</a>
-                  <ul class="sub-menu__list">
-                    <li><a href="#">Price list </a></li>
-                    <li><a href="#desserts">Desserts</a></li>
-                    <li><a href="#coffee">Coffee</a></li>
-                    <li><a href="#">Other drinks</a></li>
-                  </ul>
-                </li>
-                <li class="navmenu__item"><a href="#location">LOCATION</a></li>
-                <li class="navmenu__item"><a href="#opening-hours">OPENING HOURS</a></li>
-                <li class="navmenu__item navmenu__login">
-                  <a class="navmenu__login-link nav-link" href="#login">Login</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+      <!---------- Menu ---------->
+      <nav class="navmenu center">
+        <ul class="navmenu__list">
+          <li class="navmenu__item"><a href="#landing">ABOUT</a></li>
+          <li class="sub-menu">
+            <a class="sub-menu__btn">MENU</a>
+            <ul class="sub-menu__list">
+              <li><a href="#">Price list </a></li>
+              <li><a href="#desserts">Desserts</a></li>
+              <li><a href="#coffee">Coffee</a></li>
+              <li><a href="#">Other drinks</a></li>
+            </ul>
+          </li>
+          <li class="navmenu__item"><a href="#location">LOCATION</a></li>
+          <li class="navmenu__item"><a href="#opening-hours">OPENING HOURS</a></li>
+          <li class="navmenu__item navmenu__login">
+            <a class="navmenu__login-link nav-link" href="#login">Login</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
       </header>
-
-
-      
       <div id="app"></div>
       <div id="modal"></div>
-
-      <footer class="footer-wrapper">
+      <footer class="footer-wrapper" id="footer">
         <div class="footer-element">
           <div class="footer-container shedule">
             <h3 class="shedule__title">OPENING HOURS</h3>
