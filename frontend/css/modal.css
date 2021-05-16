@@ -1,0 +1,48 @@
+.overlay-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal__form {
+  position: relative;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+
+  width: 320px;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 10px;
+}
+.field {
+  display: flex;
+  justify-content: space-between;
+}
+.label {
+  width: 200px;
+}
+.good-desc {
+}
+.good-price {
+}
+.good-photo {
+}
+.button__container {
+}
+.button {
+}
+.add-good-btn {
+  margin: 0 auto;
+}
+.modal__input {
+  width: 100%;
+}

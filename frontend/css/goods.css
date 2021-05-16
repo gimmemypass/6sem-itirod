@@ -41,7 +41,9 @@
   box-shadow: 0px 0px 8px rgb(153, 153, 153);
 }
 .goods__overlay {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
 
   width: 100%;
   height: 100%;
@@ -63,13 +65,18 @@
 .goods__item:hover .goods__desc {
   filter: blur(1px);
 }
-.goods__action {
-  all: unset;
-
+.goods__btn-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.goods__action {
+  all: unset;
 
   width: 150px;
   height: 50px;
@@ -85,7 +92,7 @@
   transition: 0.3s;
 }
 .goods__action:active {
-  transform: translate(-50%, -50%) scale(0.99);
+  transform: scale(0.99);
 }
 .goods__action_add {
   background-color: #2dac34;
@@ -99,10 +106,16 @@
 .goods__action_remove:hover {
   background-color: #9e302d;
 }
+.goods__action_edit {
+  background-color: #0502c7;
+}
+.goods__action_edit:hover {
+  background-color: #030197;
+}
 .goods__img {
   position: absolute;
   max-width: 100%;
-  height: auto;
+  max-height: 100%;
   transition: 0.5s;
 }
 .goods__desc {
@@ -125,18 +138,89 @@
   color: azure;
   background-color: rgba(0, 0, 0, 0.7);
 }
-.goods__price {
-  position: absolute;
-  top: -1%;
-  left: 50%;
-  transform: translateX(-50%);
+.goods__action_rate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 70px;
+  margin: 0 auto;
+
+  text-align-last: center;
+  color: black;
 
   background-color: #fff;
-  box-shadow: 0px 0px 8px rgb(79, 80, 79);
-  border-radius: 5px;
-  padding: 3px 50px;
+}
+.goods__info {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
 
-  color: black;
-  font-size: 14px;
-  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.info {
+  font-size: 20px;
+}
+.info__price {
+  background-color: rgb(30, 255, 0);
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgb(73, 72, 72);
+}
+.info__rate {
+  background-color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgb(73, 72, 72);
+
+  background-image: url("../res/star.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.goods__action_delete-from-cart {
+  background-color: red;
+}
+.goods__action_delete-from-cart:hover {
+  background-color: brown;
+}
+
+/* Skeleton template */
+
+.goods__item_skeleton {
+  background-color: gray;
+
+  animation: skeleton-pulse 1s infinite;
+}
+.goods__img_skeleton {
+  background-color: gray;
+
+  animation: skeleton-pulse 1s infinite;
+}
+.info__price_skeleton {
+  width: 50px;
+  height: 20px;
+  background-color: gray;
+
+  animation: skeleton-pulse 1s infinite;
+}
+.info__rate_skeleton {
+  width: 50px;
+  height: 20px;
+  background-color: gray;
+
+  animation: skeleton-pulse 1s infinite;
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.8;
+  }
 }

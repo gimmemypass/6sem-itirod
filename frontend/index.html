@@ -16,63 +16,84 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/profile.css" />
     <link rel="stylesheet" href="css/goods.css" />
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
 
-    <script src="js/app.js" defer></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBae1XBXTF8yu0bgVR3n2duS7Bh5hEFFss",
+        authDomain: "coffee-b579a.firebaseapp.com",
+        databaseURL: "https://coffee-b579a-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "coffee-b579a",
+        storageBucket: "coffee-b579a.appspot.com",
+        messagingSenderId: "393452685710",
+        appId: "1:393452685710:web:feaa6e37c28751254e7cdf",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="js/app.js" type="module" defer></script>
+    <script src="js/auth/auth.js" defer></script>
+    <script src="js/lang.js" type="module" defer></script>
     <script src="js/sub-menu.js" defer></script>
   </head>
 
   <body>
-    <!---------- Preloader ---------->
     <img id="preloader" src="res/preloader.gif" alt="Preloader" />
     <script src="js/preloader.js"></script>
 
     <div id="content" class="preloader_hide">
-      <header>
+    <header id="header">
         <!---------- Top navigation panel ---------->
-          <div class="menu_block">
-            <!--            <div class="menu_content">-->
-            <!---------- Logo ---------->
-            <div class="logo">
-              <a href="#landing">
-                <img src="res/aloe_small.png" alt="logo" />
-                <span class="b1">Bar</span>badensis
-              </a>
-            </div>
+    <div class="menu_block">
+      <!--            <div class="menu_content">-->
+      <!---------- Logo ---------->
+      <div class="logo">
+        <a href="#landing">
+          <img src="res/aloe_small.png" alt="logo" />
+          <span class="b1">Bar</span>badensis
+        </a>
+      </div>
 
-            <!---------- Menu ---------->
-            <nav class="navmenu center">
-              <ul class="navmenu__list">
-                <li class="navmenu__item"><a href="#landing">ABOUT</a></li>
-                <li class="sub-menu">
-                  <a class="sub-menu__btn">MENU</a>
-                  <ul class="sub-menu__list">
-                    <li><a href="#">Price list </a></li>
-                    <li><a href="#desserts">Desserts</a></li>
-                    <li><a href="#coffee">Coffee</a></li>
-                    <li><a href="#">Other drinks</a></li>
-                  </ul>
-                </li>
-                <li class="navmenu__item"><a href="#location">LOCATION</a></li>
-                <li class="navmenu__item"><a href="#opening-hours">OPENING HOURS</a></li>
-                <li class="navmenu__item navmenu__login">
-                  <a class="navmenu__login-link nav-link" href="#login">Login</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+      <!---------- Menu ---------->
+      <nav class="navmenu center">
+        <ul class="navmenu__list">
+          <li class="navmenu__item"><a href="#landing">ABOUT</a></li>
+          <li class="sub-menu">
+            <a class="sub-menu__btn">MENU</a>
+            <ul class="sub-menu__list">
+              <li><a href="#">Price list </a></li>
+              <li><a href="#desserts">Desserts</a></li>
+              <li><a href="#coffee">Coffee</a></li>
+              <li><a href="#">Other drinks</a></li>
+            </ul>
+          </li>
+          <li class="navmenu__item"><a href="#location">LOCATION</a></li>
+          <li class="navmenu__item"><a href="#opening-hours">OPENING HOURS</a></li>
+          <li class="navmenu__item navmenu__login">
+            <a class="navmenu__login-link nav-link" href="#login">Login</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
       </header>
-      
       <div id="app"></div>
-
-      <footer class="footer-wrapper">
+      <div id="modal"></div>
+      <footer class="footer-wrapper" id="footer">
         <div class="footer-element">
           <div class="footer-container shedule">
             <h3 class="shedule__title">OPENING HOURS</h3>
@@ -89,9 +110,10 @@
           <div class="footer-container lang">
             <div class="options">
               <form>
-                <select name="language">
-                  <option value="english">English</option>
-                  <option value="russian">Russian</option></select
+                <select name="language" id="language">
+                  <option disabled selected>Language</option>
+                  <option value="en">English</option>
+                  <option value="ru">Russian</option></select
                 ><br />
               </form>
             </div>
@@ -118,24 +140,6 @@
           <p class="cp">ФКСИС @ 2021</p>
         </div>
       </footer>
-
-      <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
-
-      <script>
-        // Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyDSrH8UrWlOkZjx62Gg0zEFBbLYF8jj1Ls",
-          authDomain: "frontend-cafe-7.firebaseapp.com",
-          projectId: "frontend-cafe-7",
-          storageBucket: "frontend-cafe-7.appspot.com",
-          messagingSenderId: "528222335806",
-          appId: "1:528222335806:web:159a17a7a5df1ce879326f",
-          measurementId: "G-RGVP89M19E",
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-      </script>
     </div>
   </body>
 </html>
